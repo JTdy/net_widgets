@@ -36,7 +36,7 @@ local function draw_signal(level)
     cr:fill()
 
     if level == 0 then
-        cr:set_source(gears.color("#cf5050"))
+        cr:set_source(theme.fg_urgent)
         gears.shape.transform(gears.shape.cross)
             :rotate(45*math.pi/180)
                 :translate(12, -10)(cr, 10, 10, 3)
