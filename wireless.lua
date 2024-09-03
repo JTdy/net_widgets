@@ -19,7 +19,7 @@ local function draw_signal(level)
     local img = cairo.ImageSurface.create(cairo.Format.ARGB32, 32, 32)
     local cr  = cairo.Context(img)
 
-    cr:set_source(gears.color(theme.fg_normal))
+    cr:set_source(gears.color(beautiful.fg_normal))
     if level > 75 then
         cr:arc(         32/2, 32/2, 32/2, 145*math.pi/180, 395*math.pi/180)
         cr:arc_negative(32/2, 32/2, 32/2-3, 395*math.pi/180, 145*math.pi/180)
@@ -36,7 +36,7 @@ local function draw_signal(level)
     cr:fill()
 
     if level == 0 then
-        cr:set_source(theme.fg_urgent)
+        cr:set_source(gears.color(beautiful.fg_urgent))
         gears.shape.transform(gears.shape.cross)
             :rotate(45*math.pi/180)
                 :translate(12, -10)(cr, 10, 10, 3)
