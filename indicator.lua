@@ -6,8 +6,6 @@ local naughty = require("naughty")
 local gears = require("gears")
 local module_path = (...):match ("(.+/)[^/]+$") or ""
 
-local theme = beautiful.get()
-
 local indicator = {}
 local function worker(args)
   local args = args or {}
