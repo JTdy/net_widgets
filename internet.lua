@@ -3,14 +3,14 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local gears = require("gears")
-local module_path = (...):match ("(.+/)[^/]+$") or ""
+local module_path = debug.getinfo(1).source:match("@?(.*/)") or ""  -- Credit: TarmoPikaro (https://stackoverflow.com/a/35072122)
 
 local internet = {}
 local function worker(args)
   local args = args or {}
   local widget = wibox.container.background()
   -- Icons made by http://www.flaticon.com/authors/maxim-basinski from www.flaticon.com
-  local ICON_DIR = awful.util.getdir("config").."/"..module_path.."/net_widgets/icons/"
+  local ICON_DIR = module_path.."icons/"
   local yes_internet = wibox.widget {
     {
       widget = wibox.widget.imagebox,

@@ -4,7 +4,7 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local gears = require("gears")
-local module_path = (...):match ("(.+/)[^/]+$") or ""
+local module_path = debug.getinfo(1).source:match("@?(.*/)") or ""  -- Credit: TarmoPikaro (https://stackoverflow.com/a/35072122)
 
 local indicator = {}
 local function worker(args)
@@ -16,7 +16,7 @@ local function worker(args)
   -- Settings
   local interfaces = args.interfaces
   local ignore_interfaces = args.ignore_interfaces or {}
-  local ICON_DIR = awful.util.getdir("config").."/"..module_path.."/net_widgets/icons/"
+  local ICON_DIR = module_path.."icons/"
   local timeout = args.timeout or 10
   local font = args.font or beautiful.font
   local onclick = args.onclick
